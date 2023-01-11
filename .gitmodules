@@ -1,0 +1,3 @@
+[submodule "open-spelling-bee"]
+	path = open-spelling-bee
+	url = https://github.com/philshem/open-spelling-bee
