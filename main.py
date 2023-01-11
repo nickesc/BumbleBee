@@ -1,7 +1,7 @@
-from src.spellingBee import Bee
+from src.spellingBee import Bee, BeeState
 
 def main():
-    testBee = Bee()
+    testBee = Bee(new=True)
 
     testBee.guessCLI()
 

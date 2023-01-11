@@ -3,8 +3,8 @@
 #import digitalio
 #import storage
 #import supervisor
-#from light import Light
-#from src.spellingBee import Bee
+#from src.light import Light
+from src.spellingBee import Bee
 #import src.files as files
 #import csv
 
@@ -15,7 +15,10 @@
 
 def main():
 
-   with open("dictionary/dictionary.csv", 'r') as dictionaryCsvFile:
+    testBee = Bee(new=False)
+    testBee.guessCLI()
+
+    """ with open("dictionary/dictionary.csv", 'r') as dictionaryCsvFile:
         # Write the dictionary to the file in JSON format
 
 
@@ -24,7 +27,7 @@ def main():
         for line in dictionaryCsvFile:
             if x==line.strip():
                 print("Found")
-                break
+                break """
 
 
 if __name__ == "__main__":

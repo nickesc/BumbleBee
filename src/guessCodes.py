@@ -1,7 +1,9 @@
 class Codes:
-        SUCCESS=1
-        FAIL=0
-        ALREADYFOUND=2
-        NOTFOUND=3
-        EMPTY=5
-        BUZZWORD=10
+    FAIL=0
+    SUCCESS=1
+    ALREADY_FOUND=2
+    NOT_FOUND=3
+    MISSING_KEY=4
+    EMPTY=5
+    PANAGRAM=7
+    BUZZWORD=10
