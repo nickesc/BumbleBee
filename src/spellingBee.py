@@ -9,10 +9,11 @@ try:
 except:
     from dummy.board import board
 
-try:
-    from src.light import Light
-except:
-    from dummy.light import Light
+from src.lights import RGB,LED
+# try:
+#     from src.lights import LED
+# except:
+#     from dummy.lights import LED
 
 class BeeState:
 
@@ -45,7 +46,8 @@ class BeeState:
 
 class Bee:
 
-    busyLed = Light(board.LED)
+    busyLed = LED(board.LED)
+    frontRgb = RGB(board.GP6,board.GP7,board.GP8)
 
     dictLen=8823
 
@@ -227,6 +229,8 @@ class Bee:
                     print("Missing key")
                 elif code==5:
                     print("Empty")
+                elif code==6:
+                    print("Too short")
                 elif code==7:
                     print("Pangram")
                 elif code==10:
@@ -275,6 +279,8 @@ class Bee:
             guessCode = Codes.FAIL
             if self.keyletter not in guessString:
                 guessCode=Codes.MISSING_KEY
+            if len(guessString)<4:
+                guessCode=Codes.TOO_SHORT
         return guessCode
 
     def guess(self,guessString):

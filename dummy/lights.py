@@ -3,10 +3,18 @@ import asyncio
 class led:
     value=False
 
-class Light:
+class RGB:
+    def __init__(self, targetR, targetG, targetB, color1=(255,255,255)):
 
+        self.rPin=targetR
+        self.gPin=targetG
+        self.bPin=targetB
 
+        self.color=color1
 
+        print(self.color, "set")
+
+class LED:
 
     status = False
 
