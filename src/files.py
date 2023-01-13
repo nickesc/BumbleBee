@@ -37,6 +37,32 @@ def getGuessSuccess(circuitpython=False):
 def getGuessFail(circuitpython=False):
     return(getPrefix(circuitpython)+"bee_state/guessFail")
 
+def getFiles(circuitpython=False):
+    return {
+        "twl06":getTwl06(circuitpython),
+        "dictionary":getDictionary(circuitpython),
+        "dictionaryCsv":getDictionaryCsv(circuitpython),
+        "buzzCandidates":getBuzzCandidates(circuitpython),
+        "buzzCandidatesCsv":getBuzzCandidatesCsv(circuitpython),
+        "buzzword":getBuzzword(circuitpython),
+        "keyletter":getKeyletter(circuitpython),
+        "letterlist":getLetterlist(circuitpython),
+        "wordlist":getWordlist(circuitpython),
+        "guessSuccess":getGuessSuccess(circuitpython),
+        "guessFail":getGuessFail(circuitpython)
+    }
+
+def printFiles(circuitpython=False, printFiles=[]):
+    files=getFiles(circuitpython=circuitpython)
+    print("circuitpython: ",circuitpython)
+
+    if printFiles == []:
+        for file in files:
+            print(files[file])
+    else:
+        for file in printFiles:
+            print(files[file])
+
 
 """ x=getTwl06(True)
 y=getDictionary(True)

@@ -1,34 +1,9 @@
-#import asyncio
-#import board
-#import digitalio
-#import storage
-#import supervisor
-#from src.light import Light
 from src.spellingBee import Bee
-#import src.files as files
-#import csv
-
-
-#led = Light(board.LED)
-
-
 
 def main():
 
-    testBee = Bee(new=False)
-    testBee.guessCLI()
-
-    """ with open("dictionary/dictionary.csv", 'r') as dictionaryCsvFile:
-        # Write the dictionary to the file in JSON format
-
-
-        x=input(">> ").lower()
-
-        for line in dictionaryCsvFile:
-            if x==line.strip():
-                print("Found")
-                break """
-
+    testBee = Bee(new=False, on_board=True)
+    testBee.controller.startGame()
 
 if __name__ == "__main__":
     main()
