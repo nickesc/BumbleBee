@@ -1,6 +1,3 @@
-import asyncio
-import time
-
 class dummyled:
     value=False
 
@@ -33,15 +30,6 @@ class RGB:
 
     def error(self):
         print("LED is unreachable -- color: ", self.color, ", Power:", self.powered)
-
-    # def setColor(self, r, g, b):
-    #     self.color=(r,g,b)
-    #     if self.powered:
-    #         try:
-    #             self.led.color=self.color
-    #         except:
-    #             self.error()
-    #     return self.color
 
     def setColor(self,rgbTuple):
         self.color=rgbTuple
@@ -107,11 +95,3 @@ class LED:
     def toggle(self):
         self.status = not self.status
         self.sync()
-
-    async def blink(self, interval, count=10):
-        x = 0.0
-        while x != count:
-            self.toggle()
-            x += 0.5
-            await asyncio.sleep(interval)
-        self.off()

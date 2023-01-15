@@ -7,7 +7,7 @@ deploypath="/Volumes/CIRCUITPY"
 
 #mkdir -p "$deploypath/fonts"
 #cp -v "fonts/"*.pcf $deploypath/fonts
-cp -rv "bee_state" $deploypath
+#cp -rv "bee_state" $deploypath
 #cp -rv "lib" $deploypath
 mkdir -p $deploypath/src
 cp -rv "src/"*.py $deploypath/src

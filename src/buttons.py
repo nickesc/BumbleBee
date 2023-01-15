@@ -1,5 +1,4 @@
 from digitalio import DigitalInOut, Direction, Pull
-import board
 import time
 
 class Button:

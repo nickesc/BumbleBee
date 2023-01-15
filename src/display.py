@@ -1,10 +1,8 @@
-import board
 import busio
 import terminalio
 import displayio
-from adafruit_display_text import label
+from adafruit_display_text import label, bitmap_label
 from adafruit_st7789 import ST7789
-#from adafruit_bitmap_font import bitmap_font
 from adafruit_display_shapes import roundrect
 
 from src.fonts import Fonts
@@ -15,8 +13,6 @@ class Display:
     # Release any resources currently in use for the displays
     def __init__(self, tft_cs, tft_dc, spi_mosi, spi_clk):
         self.fonts=Fonts()
-
-
 
         displayio.release_displays()
 
@@ -29,16 +25,19 @@ class Display:
         self.game = displayio.Group()
         self.successes = displayio.Group()
         self.successes.hidden=True
-        #self.grid = displayio.Group()
-        #self.grid.hidden=True
+        self.grid = displayio.Group()
+        self.grid.hidden=True
         self.icons = displayio.Group()
         self.ui = displayio.Group()
         self.ui.append(self.game)
+        self.ui.append(self.grid)
         self.ui.append(self.successes)
         self.ui.append(self.icons)
 
         self.display.show(self.ui)
         self.switchUI(self.game)
+
+
 
         #self.gridText=label.Label(self.fonts.plex10, text=" "*1000, color=0xFFFFFF)
         #self.gridText.x = 0
@@ -50,17 +49,17 @@ class Display:
     def switchUI(self,ui):
         if ui=="game":
             self.game.hidden=False
-            #self.grid.hidden=True
+            self.grid.hidden=True
             self.successes.hidden=True
             self.icons.hidden=False
         elif ui=="successes":
             self.game.hidden=True
-            #self.grid.hidden=True
+            self.grid.hidden=True
             self.successes.hidden=False
             self.icons.hidden=False
         elif ui=="grid":
             self.game.hidden=True
-            #self.grid.hidden=False
+            self.grid.hidden=False
             self.successes.hidden=True
             self.icons.hidden=True
 
@@ -69,17 +68,7 @@ class Display:
         self.game.append(rectangle)
         return rectangle
 
-    def merriweather(self, text, x=0, y=0, size=20,color=0xFFFFFF, succUi=False):
-        if size==10:
-            font=self.fonts.merriweather10
-        elif size==30:
-            font=self.fonts.merriweather30
-        else:
-            font=self.fonts.merriweather20
-
-        return self.showText(text,x,y,font,False,color,succUi)
-
-    def plex(self, text, x=0, y=0, size=20, center=False,color=0xFFFFFF, succUi=False):
+    def plex(self, text, x=0, y=0, size=20, center=False,color=0xFFFFFF, succUi=False, gridUi=False, bit=False):
         if size==10:
             font=self.fonts.plex10
         elif size==30:
@@ -95,7 +84,7 @@ class Display:
         else:
             font=self.fonts.plex20
 
-        return self.showText(text,x,y,font,center,color,succUi)
+        return self.showText(text,x,y,font,center,color,succUi,gridUi,bit)
 
     def icon(self, code, x, y,color=0xFFFFFF, trueIcon=True, gridIcon=False):
         font=self.fonts.fork
@@ -104,18 +93,21 @@ class Display:
         text_area.x = x
         text_area.y = y
 
-
+        if gridIcon:
+            self.successes.append(text_area)
         if trueIcon:
             self.icons.append(text_area)
-        #elif gridIcon:
-        #    self.successes.append(text_area)
-        else:
+        if not gridIcon and not trueIcon:
             self.game.append(text_area)
         return text_area
 
-    def showText(self, text, x=0, y=0, font=terminalio.FONT, center=False, color=0xFFFFFF, succUi=False):
+    def showText(self, text, x=0, y=0, font=terminalio.FONT, center=False, color=0xFFFFFF, succUi=False, gridUi=False,bit=False):
         #color =
-        text_area = label.Label(font, text=text, color=color)
+
+        if bit:
+            text_area = bitmap_label.Label(font, text=text, color=color)
+        else:
+            text_area = label.Label(font, text=text, color=color)
 
         if center:
             text_area.anchor_point=(0.5,1)
@@ -127,7 +119,9 @@ class Display:
 
         if succUi:
             self.successes.append(text_area)
-        else:
+        if gridUi:
+            self.grid.append(text_area)
+        if not gridUi and not succUi:
             self.game.append(text_area)
         return text_area
 

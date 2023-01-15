@@ -1,9 +1,8 @@
 from src.spellingBee import Bee, BeeState
 
 def main():
-    testBee = Bee(new=False)
-
-    testBee.guessCLI()
+    cliBee = Bee(new=True)
+    cliBee.guessCLI()
     #print(testBee.getWordlist("flapjack","f"))
 
 if __name__ == "__main__":
