@@ -1,3 +1,4 @@
+# Guess codes -- used to determine the response on the game UI
 class Codes:
     FAIL=0
     SUCCESS=1

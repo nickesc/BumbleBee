@@ -3,26 +3,24 @@ Components:
 - [Pimoroni Pico LiPo](https://shop.pimoroni.com/products/pimoroni-pico-lipo?variant=39335427080275)
 - 110 mHA LiPo battery
 
-Software/Drivers:
+CircuitPython:
 - [CircuitPython for Pimoroni Pico LiPo](https://circuitpython.org/board/pimoroni_picolipo_16mb/)
-- [Pico Graphics](https://github.com/pimoroni/pimoroni-pico/tree/main/micropython/modules/picographics)
 - [Adafruit CircuitPython Bundle](https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/tag/20230111)
 
-References:
-- [NYT Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee)
-- [spelling bee glossary](https://www.nytimes.com/2021/07/26/crosswords/spelling-bee-forum-introduction.html)
-- [pico lipo interactive pinout](https://pico.pinout.xyz/pimoroni-pico-lipo)
+Documentation:
+- [Pico LiPo Interactive Pinout](https://pico.pinout.xyz/pimoroni-pico-lipo)
 - [`time.monotinic_ns`](https://docs.circuitpython.org/en/latest/shared-bindings/time/index.html#time.monotonic_ns)
 - [`adafruit_rgbled`](https://docs.circuitpython.org/projects/rgbled/en/latest/api.html)
 - [`displayio`](https://docs.circuitpython.org/en/latest/shared-bindings/displayio/)
 - [`adafruit_display_shapes`](https://docs.circuitpython.org/projects/display-shapes/en/latest/index.html)
 - [`adafruit_display_text.label.Label`](https://docs.circuitpython.org/projects/display_text/en/latest/api.html#adafruit_display_text.label.Label)
   
-Help:
-
-- [writing to CIRCUITPYTHON storage](https://learn.adafruit.com/circuitpython-essentials/circuitpython-storage)
-- [writing to CIRCUITPYTHON](https://learn.adafruit.com/cpu-temperature-logging-with-circuit-python/writing-to-the-filesystem)
-- [how to tell if computer is connected to circuitpython board without a switch pin](https://github.com/adafruit/circuitpython/issues/544#:~:text=think%20these%20are%20both%20covered%20now%20by%20supervisor.runtime.serial_connected%20and%20supervisor.runtime.usb_connected): `supervisor.runtime.serial_connected`/`supervisor.runtime.usb_connected`
+References:
+- [NYT Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee)
+- [Spelling Bee glossary](https://www.nytimes.com/2021/07/26/crosswords/spelling-bee-forum-introduction.html)
+- [Writing to CIRCUITPYTHON storage](https://learn.adafruit.com/circuitpython-essentials/circuitpython-storage)
+- [Writing to CIRCUITPYTHON](https://learn.adafruit.com/cpu-temperature-logging-with-circuit-python/writing-to-the-filesystem)
+- [How to tell if computer is connected to circuitpython board without a switch pin](https://github.com/adafruit/circuitpython/issues/544#:~:text=think%20these%20are%20both%20covered%20now%20by%20supervisor.runtime.serial_connected%20and%20supervisor.runtime.usb_connected): `supervisor.runtime.serial_connected`/`supervisor.runtime.usb_connected`
 - [Memory management](https://learn.adafruit.com/Memory-saving-tips-for-CircuitPython)
 - [Multitasking in Circuitpython: Buttons](https://learn.adafruit.com/multi-tasking-with-circuitpython/buttons)
 - [Custom fonts in CircuitPython](https://learn.adafruit.com/custom-fonts-for-pyportal-circuitpython-display)

@@ -5,8 +5,6 @@
 from supervisor import runtime
 import storage
 
+# If USB is not connected CircuitPython can write to the drive
 usbConnected=runtime.usb_connected
-
-# If the D0 is connected to ground with a wire
-# CircuitPython can write to the drive
-#storage.remount("/", usbConnected)
+#storage.remount("/", readonly=usbConnected)
