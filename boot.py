@@ -7,4 +7,4 @@ import storage
 
 # If USB is not connected CircuitPython can write to the drive
 usbConnected=runtime.usb_connected
-#storage.remount("/", readonly=usbConnected)
+storage.remount("/", readonly=usbConnected)

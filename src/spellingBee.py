@@ -11,7 +11,6 @@ try:
     import board
     import gc
     import displayio
-    import storage
     from src.buttons import Button
     from src.display import Display
     from src.lights import RGB,LED
@@ -637,25 +636,6 @@ class Bee:
 
                                 # if the X button is pressed and had a different value than the last cycle
                                 elif buttonCheck[2]==True and buttonCheck[2]!=prevButtons[2]:
-
-                                    # if the button is held, enter dev mode
-                                    passSelect=False
-                                    while self.buttons[2].pressed():
-                                        if time.monotonic_ns()>currTime+10000000000:
-                                            passSelect=True
-
-                                            # set the dev mode alert
-                                            alert.color=0xFF00FF
-                                            alert.text="DEV MODE"
-                                            alerting=True
-                                            alertStart=time.monotonic_ns()+60000000000
-
-                                            # unmount the storage system to allow code/file upload from computer
-                                            #storage.unmount("/")
-
-                                            # go back
-                                            back=True
-                                            break
 
                                     # update the success index and display (?) the current success
                                     if not passSelect and successIndex>0:
