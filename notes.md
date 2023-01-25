@@ -38,3 +38,9 @@ Fonts:
 - [IBM Plex](https://github.com/IBM/plex)
 - [Fork Awesome Bitmap Icon Font](https://emergent.unpythonic.net/01606790241) ([icons](https://forkaweso.me/Fork-Awesome/icons/))
 - [Adafruit bdftopcf](https://adafruit.github.io/web-bdftopcf/)
+
+Things to know about the device:
+- The device BumbleBee takes a long time to make a new game. be patient with it, put it down for 2-10 minutes then come back to it. the game resets infrequently enough that it shouldn't be a problem
+- try not ot leave it on -- the battery does better if it is off than if is allowed to deplete
+- on that note, the screen-on time for the battery in the device is around 45 minutes-1 hour
+- also, the graph is difficult to read -- though the word length labels are missing, the columns always start from 4 -- the grid is the same otherwise, just missing labels

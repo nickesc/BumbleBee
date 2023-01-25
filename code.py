@@ -1,4 +1,4 @@
-from src.spellingBee import Bee
+from src.bumbleBee import Bee
 
 def main():
 

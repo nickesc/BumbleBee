@@ -3,5 +3,7 @@ adafruit-circuitpython-bundle-7.x-mpy-20230111/
 
 getBuzzCandidates.py
 __pycache__/
+release/
+video/
 
 *.blend1
