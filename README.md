@@ -1,4 +1,5 @@
-<p align="center"><img src="docs/img/out/header.png" alt="header"/>
+![header](docs/img/out/header.png)
+
 <h3 align="center" >
   <strong style="font-size:1.17em">The BumbleBee</strong>
   <br>
