@@ -17,12 +17,7 @@
 2. [__Components__](#components)
    - [Hardware](#hardware)
    - [Software](#software)
-3. [__Setup and Assembly Guide__](#setup-and-assembly-guide)
-   1.  [Install CircuitPython on the device](#i-install-circuitpython-on-the-device)
-   2.  [Assemble the device](#ii-assemble-the-device)
-   3.  [Deploy code to the device](#iii-deploy-code-to-the-device)
-   4.  [Test the BumbleBee](#iv-test-the-bumblebee)
-4. [__Gameplay__](#gameplay)
+3. [__Gameplay__](#gameplay)
    - [How to play](#how-to-play)
      - [Rules](#rules)
      - [Scoring](#scoring)
@@ -38,6 +33,11 @@
      - [Usage](#usage)
      - [Game Board](#cli-gameboard)
      - [Hints](#hints)
+4. [__Setup and Assembly Guide__](#setup-and-assembly-guide)
+   1.  [Install CircuitPython on the device](#i-install-circuitpython-on-the-device)
+   2.  [Assemble the device](#ii-assemble-the-device)
+   3.  [Deploy code to the device](#iii-deploy-code-to-the-device)
+   4.  [Test the BumbleBee](#iv-test-the-bumblebee)
 5. [__Design and Development__](#design-and-development)
    - [Design](#design)
    - [Development](#development)
@@ -50,8 +50,8 @@
 
 The goal of each `Bee` is to make as many words as you can only using a set of seven letters, including one keyletter that needs to be in every word. 
 
-<p align="center" style="padding:0 20%">
-  <img src="docs/img/photos/frontManual1.png" alt="The BumbleBee sitting on its manual"/>
+<p align="center">
+  <img src="docs/img/photos/frontManual1.png" width="60%" height="auto" alt="The BumbleBee sitting on its manual"/>
 </p>
 
 The device itself is built with a Pimoroni Pico LiPo as the controller and a Pimoroni Display Pack for the display and four face buttons. 
@@ -80,110 +80,11 @@ Pimoroni Pico LiPo *16MB* | Pimoroni Pico Display Pack | ***Optional:*** <br> *1
   - [`adafruit_bitmap_font`](https://docs.circuitpython.org/projects/bitmap-font/en/latest/)
   - [`adafruit_st7789`](https://docs.circuitpython.org/projects/st7789/en/latest/api.html)
 
-## Setup and Assembly Guide
 
-*This guide assumes the use of a UNIX based OS, some commands and folders may be different and some scripts may need to be edited if working on Windows*
-
-### I. Install CircuitPython on the device
-
-1. Test that the Pico LiPo is working – ensure that it turns on when connected to power
-   
-   > <img src="docs/img/photos/powerTest.png" alt="Pico LiPo power test showing the device's LED on" style="max-height: 250px">
-   >
-   > *verify the device is on by checking that the power LED lights up when plugged in*
-   
-2. Download the ***CircuitPython 7.3.3*** `.uf2` file from the [CircuitPython Pimoroni Pico LiPo 16MB page](https://circuitpython.org/board/pimoroni_picolipo_16mb/)
-   - this CircuitPython file can also be found in thsi project at [`uf2/adafruit-circuitpython-pimoroni_picolipo_16mb-en_US-7.3.3.uf2`](https://github.com/nickesc/BumbleBee/blob/main/uf2/adafruit-circuitpython-pimoroni_picolipo_16mb-en_US-7.3.3.uf2) 
-
-3. Put the Pico LiPo into `Bootloader Mode` while connected to the computer
-   - Because there is no reset button on the Pico LiPo, we can start the `UF2 Bootloader` by holding the `BOOT` button and pressing the `POWER` button twice while the device is powered to simulate a reset – a new drive named `RPI-RP2` should be connected to the computer if it was successful
-
-      > <img src="docs/img/photos/powerBoot.png" alt="Pico LiPo power (on top) and boot (on bottom) buttons" style="max-height: 200px"> <img src="docs/img/screenshots/RPI-RP2.png" alt="The RPI-RP2 Finder window, showing the RPI-RP2 drive mounted" style="max-height: 200px">
-      >
-      > 1. *The Pico LiPo's `POWER` (top) and `BOOT` (bottom) buttons*
-      > 2. *And the `RPI-RP2` Finder window, showing the `RPI-RP2` drive mounted*
-
-4. Drag the Pico LiPo CircuitPython `.uf2` file into the `RPI-RP2` drive
-
-    > <img src="docs/img/screenshots/dragAndDrop.gif" alt="A gif of a CircuitPython uf2 file being dragged-and-dropped into the RPI-RP2 drive" style="max-height: 200px">
-    > 
-    > *The Finder window may freeze when the file is dragged in*
- 
- - though supposedly fixed in MacOS 13.1, [some users who have upgraded to MacOS Ventura have reported](https://blog.adafruit.com/2022/10/31/uploading-uf2-files-with-macos-13-0-ventura-apple-microbit_edu-raspberry_pi-circuitpython/) that the drag-and-drop functionality for bootloader drives has been broken; if there is an error when trying to drag the file, transfer the file to the `RPI-RP2` drive using the command-line. A command like this should work: `cp -X <download_location>/<circuitpython_file>.uf2 /Volumes/RPI-RP2`
-
-1. Transferring the file will take a few seconds, but once the `RPI-RP2` drive ejects, a new drive labeled `CIRCUITPYTHON` should replace it if the device was flashed successfully
- 
-    > <img src="docs/img/screenshots/CircuitPythonRoot.png" alt="The CIRCUITPYTHON Finder window, showing the CIRCUITPYTHON drive mounted and flashed successfully" style="max-height: 200px">
-    >
-    > *The newly mounted `CIRCUITPYTHON` Finder window, showing the board was flashed successfully*
-
-2. Using a serial monitor ([the Mu Editor has a simple one](https://learn.adafruit.com/welcome-to-circuitpython/kattni-connecting-to-the-serial-console)) ensure that the [REPL](https://codewith.mu/en/tutorials/1.2/repl) is accessible
-
-3. Eject the Pico LiPo drive from the computer 
-
-### II. Assemble the device
-
-1. Disconnect the Pico LiPo from power
-2. Solder headers to the pin holes on the Pico LiPo – these are necessary for the display
-   - here is a guide for help with that: [The MagPi: How to solder GPIO pin headers to Raspberry Pi Pico](https://magpi.raspberrypi.com/articles/how-to-solder-gpio-pin-headers-to-raspberry-pi-pico)
-3. Now the satisfying part – slot the pins of the Pico LiPo into the pin sockets on the Pico Display Pack
-   - the Pico Display Pack has a graphic of the USB port on the underside of the board to indicate in which orientation the Pico is supposed to be attached – make sure to align the port on the controller with the graphic and carefully line all the pins up so they go in the correct sockets
- 4. ***Optional:*** Connect the battery's JST connector to the Pico LiPo's JST port – ensure the power and ground wires on the battery match the labels on the Pico LiPo
-    - if the battery comes without a JST connector, as mine did, you may need to [solder one on yourself](https://youtu.be/3qclg4jz-54). Ensure the right wires from the battery are being connected to the right pins on the connector and that they also match up with the labels on the board
-    1. Slot the battery in between the Pico LiPo and the Pico Display Pack and tuck in the wires, careful not to damage any connections
-
-> <p align="center">
->   <img src="docs/img/photos/assembled.png" alt="A fully assembled BumbleBee, with all 3 components. Shows the solder points, sockets, and battery connection" style="width: 80%">
->   <br>
->   <i>Once assembled, the device should look like this</i>
-> </p>
-
-### III. Deploy code to the device
-
-#### Option 1: using the command-line
-
-1. Connect the Pico LiPo to the computer and ensure it is powered
-2. Clone [the BumbleBee repository](https://github.com/nickesc/BumbleBee) and enter the directory:
-    
-    ```sh 
-    git clone https://github.com/nickesc/BumbleBee
-    cd BumbleBee
-    ```
-
-3. Upload the code to the device by executing: 
-    
-    ```sh
-    ./deploy.sh
-    ```
-
-   - if the command-line returns `Permission denied` or `Command not found`, execute `chmod +x ./deploy.sh` before running `./deploy.sh` again
-   - the code may take a few minutes to upload, *do not* disconnect the device until the screen settles and the game starts
-   - *do not* disconnect the device without ejecting it first
-
-#### Option 2: drag-and-drop
-
-1. Connect the Pico LiPo to the computer and ensure it is powered
-2. Download the [latest release from the BumbleBee repository](https://github.com/nickesc/BumbleBee/releases)
-3. Unzip the `BumbleBee_release.zip` archive
-4. Drag the contents of the archive into the `CIRCUITPYTHON` drive, and replace any files that are already there
-   - the code may take a few minutes to upload, ***do not*** disconnect or turn off the device until the screen settles and the game starts
-   - ***do not*** disconnect or turn off the device without ejecting it first
-
-### IV. Test the BumbleBee
-
-*For more information on how to use the BumbleBee, which may be useful when testing, see the [Manual](docs/Manual.pdf) or [**Gameplay**](#gameplay) section*
-
-1. Make sure that the BumbleBee can receive input and registers it by moving the letter selector or changing to different screens
-   - If the BumbleBee is still connected to the computer, the serial monitor should print the inputs and interactions with the game
-2. Eject the BumbleBee from the computer, disconnect it from the computer and cycle the power.
-   - If the BumbleBee doesn't have a battery, connect it to a non-computer power source like a wall-plug and turn it on 
-3. Find a word in the `Bee` to test the game functionality
-4. Cycle the power again to make sure the game saves
-   - the game state will not save if the BumbleBee was turned on while connected to a computer
 
 ## Gameplay
 
-<p align="center" style="padding:0 0"><img src="docs/img/photos/gameManual1.png" alt="The BumbleBee sitting on its manual, open to the first page"/></p>
+<p align="center"><img src="docs/img/photos/gameManual1.png" alt="The BumbleBee sitting on its manual, open to the first page"/></p>
 
 ### How to play:
 
@@ -224,7 +125,7 @@ The Game Screen has the `letterlist` and the guess input. To move the letter sel
 Other functions can also be accessed by holding down the buttons. To shuffle the `letterlist` hold the `A button`. To submit the guess hold the `B button`. To generate a new `Bee` hold the `X button`. Winning a `Bee` will also generate a new `Bee`. To swap to the Info Screen hold the `Y button`.
 
 <br>
-<p align="center" style="padding:0 20%"><img src="docs/img/photos/gameDevice1.png" alt="The BumbleBee sitting on its manual, open to the first page"/></p>
+<p align="center"><img src="docs/img/photos/gameDevice1.png" alt="The BumbleBee sitting on its manual, open to the first page" width="60%" height="auto"/></p>
 <br>
 
 #### Info Screen
@@ -235,7 +136,7 @@ The Info Screen shows you information about the words that you’ve found so far
 To scroll the correct-guess list right or left press the `A button` or the `X button`. To swap back to the Game Screen press the `Y button`. To swap to the Grid Screen press the `B button`.
 
 <br>
-<p align="center" style="padding:0 20%"><img src="docs/img/photos/infoDevice.png" alt="The BumbleBee sitting on its manual, open to the first page"/></p>
+<p align="center"><img src="docs/img/photos/infoDevice.png" alt="The BumbleBee sitting on its manual, open to the first page" width="60%" height="auto"/></p>
 <br>
 
 #### Grid Screen
@@ -249,7 +150,7 @@ The Grid Screen provides you with hints about the words in the `Bee`’s `wordli
 - The right column shows the total number of words that start with each row’s letter. The bottom row shows the total number of words with each column’s word length.
 
 <br>
-<p align="center" style="padding:0 20%"><img src="docs/img/photos/gridDevice.png" alt="The BumbleBee sitting on its manual, open to the first page"/></p>
+<p align="center"><img src="docs/img/photos/gridDevice.png" alt="The BumbleBee sitting on its manual, open to the first page" width="60%" height="auto"/></p>
 <br>
 
 #### Device Diagram
@@ -257,7 +158,7 @@ The Grid Screen provides you with hints about the words in the `Bee`’s `wordli
 ![Device diagram](docs/img/out/diagrams/deviceDiagram_doc.png)
 
 <br>
-<p align="center" style="padding:0 20%"><img src="docs/img/photos/deviceManual.png" alt="The BumbleBee sitting on its manual, open to the device page"/></p>
+<p align="center"><img src="docs/img/photos/deviceManual.png" alt="The BumbleBee sitting on its manual, open to the device page" width="60%" height="auto"/></p>
 <br>
 
 #### Tips
@@ -268,8 +169,8 @@ The Grid Screen provides you with hints about the words in the `Bee`’s `wordli
   <table style="border: 0px" align=center>
 
     <tr style="border: 0px">
-      <td style="border: 0px"><img src="docs/img/photos/thinkingDevice.png" alt="found alert" style="max-height:200px"/></td>
-      <td style="border: 0px"><img src="docs/img/photos/newGameAlert.png" alt="not found alert" style="max-height:200px"/></td>
+      <td style="border: 0px"><img src="docs/img/photos/thinkingDevice.png" alt="found alert" height="200px" width="auto"/></td>
+      <td style="border: 0px"><img src="docs/img/photos/newGameAlert.png" alt="not found alert" height="200px" width="auto"/></td>
     </tr>
 
   </table>
@@ -280,13 +181,13 @@ The Grid Screen provides you with hints about the words in the `Bee`’s `wordli
   <table style="border: 0px" align=center>
 
     <tr style="border: 0px">
-      <td style="border: 0px"><img src="docs/img/photos/foundAlert.png" alt="found alert" style="max-height:200px"/></td>
-      <td style="border: 0px"><img src="docs/img/photos/notFoundAlert.png" alt="not found alert" style="max-height:200px"/></td>
+      <td style="border: 0px"><img src="docs/img/photos/foundAlert.png" alt="found alert" height="200px" width="auto"/></td>
+      <td style="border: 0px"><img src="docs/img/photos/notFoundAlert.png" alt="not found alert" height="200px" width="auto"/></td>
     </tr>
 
     <tr style="border: 0px">
-      <td style="border: 0px"><img src="docs/img/photos/emptyAlert.png" alt="empty alert" style="max-height:200px"/></td>
-      <td style="border: 0px"><img src="docs/img/photos/tooShortAlert.png" alt="too short alert" style="max-height:200px"/></td>
+      <td style="border: 0px"><img src="docs/img/photos/emptyAlert.png" alt="empty alert" height="200px" width="auto"/></td>
+      <td style="border: 0px"><img src="docs/img/photos/tooShortAlert.png" alt="too short alert" height="200px" width="auto"/></td>
     </tr>
 
   </table
@@ -413,6 +314,108 @@ Inputting `-cheat` to the command-line will toggle whether the `Bee`'s `wordlist
 > ```
 >
 > The ability to cheat with the `wordlist` is the only difference between the game on the device and the CLI. The `wordlist` shows you every word in the `Bee`'s dictionary that can be made using the letters in the `letterlist` and the `keyletter` and what each of them is worth.
+
+## Setup and Assembly Guide
+
+*This guide assumes the use of a UNIX based OS, some commands and folders may be different and some scripts may need to be edited if working on Windows*
+
+### I. Install CircuitPython on the device
+
+1. Test that the Pico LiPo is working – ensure that it turns on when connected to power
+   
+   > <img src="docs/img/photos/powerTest.png" alt="Pico LiPo power test showing the device's LED on" width="50%" height="auto">
+   >
+   > *verify the device is on by checking that the power LED lights up when plugged in*
+   
+2. Download the ***CircuitPython 7.3.3*** `.uf2` file from the [CircuitPython Pimoroni Pico LiPo 16MB page](https://circuitpython.org/board/pimoroni_picolipo_16mb/)
+   - this CircuitPython file can also be found in thsi project at [`uf2/adafruit-circuitpython-pimoroni_picolipo_16mb-en_US-7.3.3.uf2`](https://github.com/nickesc/BumbleBee/blob/main/uf2/adafruit-circuitpython-pimoroni_picolipo_16mb-en_US-7.3.3.uf2) 
+
+3. Put the Pico LiPo into `Bootloader Mode` while connected to the computer
+   - Because there is no reset button on the Pico LiPo, we can start the `UF2 Bootloader` by holding the `BOOT` button and pressing the `POWER` button twice while the device is powered to simulate a reset – a new drive named `RPI-RP2` should be connected to the computer if it was successful
+
+      > <img src="docs/img/photos/powerBoot.png" alt="Pico LiPo power (on top) and boot (on bottom) buttons" width="45%" height="auto"> <img src="docs/img/screenshots/RPI-RP2.png" alt="The RPI-RP2 Finder window, showing the RPI-RP2 drive mounted" width="45%" height="auto">
+      >
+      > 1. *The Pico LiPo's `POWER` (top) and `BOOT` (bottom) buttons*
+      > 2. *And the `RPI-RP2` Finder window, showing the `RPI-RP2` drive mounted*
+
+4. Drag the Pico LiPo CircuitPython `.uf2` file into the `RPI-RP2` drive
+
+    > <img src="docs/img/screenshots/dragAndDrop.gif" alt="A gif of a CircuitPython uf2 file being dragged-and-dropped into the RPI-RP2 drive" width="50%" height="auto">
+    > 
+    > *The Finder window may freeze when the file is dragged in*
+ 
+ - though supposedly fixed in MacOS 13.1, [some users who have upgraded to MacOS Ventura have reported](https://blog.adafruit.com/2022/10/31/uploading-uf2-files-with-macos-13-0-ventura-apple-microbit_edu-raspberry_pi-circuitpython/) that the drag-and-drop functionality for bootloader drives has been broken; if there is an error when trying to drag the file, transfer the file to the `RPI-RP2` drive using the command-line. A command like this should work: `cp -X <download_location>/<circuitpython_file>.uf2 /Volumes/RPI-RP2`
+
+1. Transferring the file will take a few seconds, but once the `RPI-RP2` drive ejects, a new drive labeled `CIRCUITPYTHON` should replace it if the device was flashed successfully
+ 
+    > <img src="docs/img/screenshots/CircuitPythonRoot.png" alt="The CIRCUITPYTHON Finder window, showing the CIRCUITPYTHON drive mounted and flashed successfully" width="50%" height="auto">
+    >
+    > *The newly mounted `CIRCUITPYTHON` Finder window, showing the board was flashed successfully*
+
+2. Using a serial monitor ([the Mu Editor has a simple one](https://learn.adafruit.com/welcome-to-circuitpython/kattni-connecting-to-the-serial-console)) ensure that the [REPL](https://codewith.mu/en/tutorials/1.2/repl) is accessible
+
+3. Eject the Pico LiPo drive from the computer 
+
+### II. Assemble the device
+
+1. Disconnect the Pico LiPo from power
+2. Solder headers to the pin holes on the Pico LiPo – these are necessary for the display
+   - here is a guide for help with that: [The MagPi: How to solder GPIO pin headers to Raspberry Pi Pico](https://magpi.raspberrypi.com/articles/how-to-solder-gpio-pin-headers-to-raspberry-pi-pico)
+3. Now the satisfying part – slot the pins of the Pico LiPo into the pin sockets on the Pico Display Pack
+   - the Pico Display Pack has a graphic of the USB port on the underside of the board to indicate in which orientation the Pico is supposed to be attached – make sure to align the port on the controller with the graphic and carefully line all the pins up so they go in the correct sockets
+ 4. ***Optional:*** Connect the battery's JST connector to the Pico LiPo's JST port – ensure the power and ground wires on the battery match the labels on the Pico LiPo
+    - if the battery comes without a JST connector, as mine did, you may need to [solder one on yourself](https://youtu.be/3qclg4jz-54). Ensure the right wires from the battery are being connected to the right pins on the connector and that they also match up with the labels on the board
+    1. Slot the battery in between the Pico LiPo and the Pico Display Pack and tuck in the wires, careful not to damage any connections
+
+> <p align="center">
+>   <img src="docs/img/photos/assembled.png" alt="A fully assembled BumbleBee, with all 3 components. Shows the solder points, sockets, and battery connection" width="80%" height="auto">
+>   <br>
+>   <i>Once assembled, the device should look like this</i>
+> </p>
+
+### III. Deploy code to the device
+
+#### Option 1: using the command-line
+
+1. Connect the Pico LiPo to the computer and ensure it is powered
+2. Clone [the BumbleBee repository](https://github.com/nickesc/BumbleBee) and enter the directory:
+    
+    ```sh 
+    git clone https://github.com/nickesc/BumbleBee
+    cd BumbleBee
+    ```
+
+3. Upload the code to the device by executing: 
+    
+    ```sh
+    ./deploy.sh
+    ```
+
+   - if the command-line returns `Permission denied` or `Command not found`, execute `chmod +x ./deploy.sh` before running `./deploy.sh` again
+   - the code may take a few minutes to upload, *do not* disconnect the device until the screen settles and the game starts
+   - *do not* disconnect the device without ejecting it first
+
+#### Option 2: drag-and-drop
+
+1. Connect the Pico LiPo to the computer and ensure it is powered
+2. Download the [latest release from the BumbleBee repository](https://github.com/nickesc/BumbleBee/releases)
+3. Unzip the `BumbleBee_release.zip` archive
+4. Drag the contents of the archive into the `CIRCUITPYTHON` drive, and replace any files that are already there
+   - the code may take a few minutes to upload, ***do not*** disconnect or turn off the device until the screen settles and the game starts
+   - ***do not*** disconnect or turn off the device without ejecting it first
+
+### IV. Test the BumbleBee
+
+*For more information on how to use the BumbleBee, which may be useful when testing, see the [Manual](docs/Manual.pdf) or [**Gameplay**](#gameplay) section*
+
+1. Make sure that the BumbleBee can receive input and registers it by moving the letter selector or changing to different screens
+   - If the BumbleBee is still connected to the computer, the serial monitor should print the inputs and interactions with the game
+2. Eject the BumbleBee from the computer, disconnect it from the computer and cycle the power.
+   - If the BumbleBee doesn't have a battery, connect it to a non-computer power source like a wall-plug and turn it on 
+3. Find a word in the `Bee` to test the game functionality
+4. Cycle the power again to make sure the game saves
+   - the game state will not save if the BumbleBee was turned on while connected to a computer
+
 
 ## Design and Development
 
