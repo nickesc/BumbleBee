@@ -963,7 +963,7 @@ class Bee:
 ''' % (self.letterlist[0],self.letterlist[1],self.letterlist[2],self.letterlist[3],self.letterlist[4],self.letterlist[5],self.letterlist[6]))
 
         # print the current correct guesses and score
-        print("Found: (%s left)" % (self.getRemainingNum()))
+        print("Found: %s (%s left)" % (str(len(self.guessSuccess)),self.getRemainingNum()))
         print("Score:",self.score)
         print(self.guessSuccess)
 
