@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 840 472.93">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: red;
+      }
+    </style>
+  </defs>
+  <image width="1680" height="945" transform="scale(.5)" xlink:href="../demo/bumblebeeDemoThumb.png"/>
+  <path class="cls-2" d="m534.18,179.22c-2.79-10.31-10.83-18.38-21.14-21.14-13.85-5.35-147.95-7.96-186.85.15-10.31,2.79-18.38,10.83-21.14,21.14-6.25,27.42-6.72,86.69.15,114.72,2.79,10.31,10.83,18.38,21.14,21.14,27.42,6.31,157.75,7.2,186.85,0,10.31-2.79,18.38-10.83,21.14-21.14,6.66-29.87,7.14-85.46-.15-114.87Z"/>
+  <path class="cls-1" d="m459.13,236.68l-62.49-35.84v71.68l62.49-35.84Z"/>
+</svg>
