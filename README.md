@@ -29,6 +29,7 @@
      - [Device Diagram](#device-diagram)
      - [Tips](#tips)
      - [Troubleshooting](#troubleshooting)
+     - [Demonstration](#demonstration)
    - [CLI Gameplay](#cli-gameplay)
      - [Running](#running-as-a-cli)
      - [Usage](#usage)
@@ -200,8 +201,8 @@ The Grid Screen provides you with hints about the words in the `Bee`’s `wordli
   <table style="border: 0px" align=center>
 
     <tr style="border: 0px">
-      <td style="border: 0px"><img src="docs/img/photos/thinkingDevice.png" alt="The BumbleBee starting up a new game, with a red thinking LED on and game information unpopulated on the Game Screen" height="200px" width="auto"/></td>
-      <td style="border: 0px"><img src="docs/img/photos/newGameAlert.png" alt="The BumbleBee displaying a 'making new game...' alert at the top of the screen in green with a red thinking LED on" height="200px" width="auto"/></td>
+      <td style="border: 0px" width="50%"><img src="docs/img/photos/thinkingDevice.png" alt="The BumbleBee starting up a new game, with a red thinking LED on and game information unpopulated on the Game Screen" height="auto" width="100%"/></td>
+      <td style="border: 0px" width="50%"><img src="docs/img/photos/newGameAlert.png" alt="The BumbleBee displaying a 'making new game...' alert at the top of the screen in green with a red thinking LED on" height="auto" width="100%"/></td>
     </tr>
 
   </table>
@@ -212,13 +213,13 @@ The Grid Screen provides you with hints about the words in the `Bee`’s `wordli
   <table style="border: 0px; background-color:#00000000" align=center>
 
     <tr style="border: 0px; background-color:#00000000">
-      <td style="border: 0px; background-color:#00000000"><img src="docs/img/photos/foundAlert.png" alt="The BumbleBee displaying a 'found' alert at the top of the screen in green" height="200px" width="auto"/></td>
-      <td style="border: 0px; background-color:#00000000"><img src="docs/img/photos/notFoundAlert.png" alt="The BumbleBee displaying a 'not found' alert at the top of the screen in red" height="200px" width="auto"/></td>
+      <td style="border: 0px; background-color:#00000000" width="50%"><img src="docs/img/photos/foundAlert.png" alt="The BumbleBee displaying a 'found' alert at the top of the screen in green" height="auto" width="100%"/></td>
+      <td style="border: 0px; background-color:#00000000" width="50%"><img src="docs/img/photos/notFoundAlert.png" alt="The BumbleBee displaying a 'not found' alert at the top of the screen in red" height="auto" width="100%"/></td>
     </tr>
 
     <tr style="border: 0px; background-color:#00000000">
-      <td style="border: 0px; background-color:#00000000"><img src="docs/img/photos/emptyAlert.png" alt="The BumbleBee displaying an 'empty' alert at the top of the screen in red" height="200px" width="auto"/></td>
-      <td style="border: 0px; background-color:#00000000"><img src="docs/img/photos/tooShortAlert.png" alt="The BumbleBee displaying a 'too short' alert at the top of the screen in red" height="200px" width="auto"/></td>
+      <td style="border: 0px; background-color:#00000000" width="50%"><img src="docs/img/photos/emptyAlert.png" alt="The BumbleBee displaying an 'empty' alert at the top of the screen in red" height="auto" width="100%"/></td>
+      <td style="border: 0px; background-color:#00000000" width="50%"><img src="docs/img/photos/tooShortAlert.png" alt="The BumbleBee displaying a 'too short' alert at the top of the screen in red" height="auto" width="100%"/></td>
     </tr>
 
   </table>
@@ -235,6 +236,9 @@ The Grid Screen provides you with hints about the words in the `Bee`’s `wordli
 - The battery will only last so long, and doesn't have a way to be measured. A full charge on the device's battery should last about 45 minutes to 1 hour
 - The grid is difficult to read – though the word length labels are missing, the leftmost column is always for words that are four letters long – the grid is pretty much the same as the NYTSB's otherwise
 - If at any point the device is freezing or functioning poorly or incorrectly, there should be little danger in simply turning it off and on again – the game saves automatically at the start of every game and on every guess
+
+
+#### Demonstration
 
 ***A demonstration of the device's full functionality can be found on [Youtube]():***
 
@@ -872,7 +876,7 @@ In CircuitPython, displays can use [`displayio`](https://docs.circuitpython.org/
 > <p align="center">
 >   <img src="docs/img/demo/deviceDemo3.gif" alt="A demo of the device display with a Bee built from the word 'accordion'. The guess input field and selected letter are displayed very small in the middle of the screen. The guess input field is above the selected letters, which appear and disappear as they are selected. The player moves the selector horizontally from letter to letter, also deleting an extra 'o', using the buttons and successfully selects and submits the letters for 'accord', which disappears" width="80%" height="auto">
 >   <br>
->   <i>The first display output of the project – blurry and small, but shows the guess input string on top and the letter selector's location on the bottom</i>
+>   <i>The first display output of the project – blurry and small, but shows the guess input string, inputting accord, on top and the letter selector's location on the bottom</i>
 > </p>
 
 The first iteration with the display attached was very simple. It works exactly the same as the last iteration over the REPL, still printing everything there, but in addition, two strings are displayed to the screen:
