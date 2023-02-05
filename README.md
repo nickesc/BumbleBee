@@ -581,7 +581,7 @@ cliBee.guessCLI()
 ```
 
 <p align="center">
-  <img src="docs/img/demo/cliDemo.gif" alt="A demo of the CLI from the word 'rebuilt'. Player submits 'blurb' successfully, then 'rub' unsuccessfully, turns on the grid, submits 'butler' successfully, turns off the grid, turns on the wordlist, submits 'rebuilt' successfully, turns off the wordlist and generates a new Bee" width="50%" height="auto">
+  <img src="docs/img/demo/cliDemo.gif" alt="A demo of the CLI from the word 'rebuilt'. Player submits 'blurb' successfully, then 'rub' unsuccessfully, turns on the grid, submits 'butler' successfully, turns off the grid, turns on the wordlist, submits 'rebuilt' successfully, turns off the wordlist and generates a new Bee" width="60%" height="auto">
 </p>
 
 This starts a loop that prints out the gameboard, showing it in the classic NYTSB hexagon with `Bee.printBee()`, asks the player to input their guess using the keyboard, interprets the guess and loops.
@@ -660,11 +660,11 @@ The `Controller` class is the manager for the hardware in the BumbleBee. It init
 
 At first, I simply implemented a selector that used the REPL to display which letter it was on. Like the final game, it used the `A Button` to move it to the right and the `X Button` to move to the left. The `B Button` could be pressed to add a letter to a guess input string, and the `Y Button` could be pressed to submit and check if it was in the `Bee`'s `wordlist`; if the guess was successful, the game would end.
 
-<p align="center">
-  <img src="docs/img/demo/deviceDemo1.gif" alt="A demo of the device printing selected letters to the REPL from a Bee built from the word 'flapjack'. The player scrolls the selector from letter to letter and selects and submits the letters for 'flap'" width="80%" height="auto">
-  <br>
-  <i>A demo of the first iteration of the device. The player selects and submits the letters for 'flap'</i>
-</p>
+> <p align="center">
+>   <img src="docs/img/demo/deviceDemo1.gif" alt="A demo of the device printing selected letters to the REPL from a Bee built from the word 'flapjack'. The player scrolls the selector from letter to letter and selects and submits the letters for 'flap'" width="80%" height="auto">
+>   <br>
+>   <i>A demo of the first iteration of the device. The player selects and submits the letters for 'flap'</i>
+> </p>
 
 The `Bee.Controller.startGame()` loop works a little differently than the CLI's loop. Waiting for the player to submit a word doesn't work because we need to handle all of the inputs. This loop, instead, is not quite a state-machine. It loops over and over, checking for input on each button. If the button is detected as pressed on that iteration of the loop, it reacts accordingly. The `X Button` and `A Button` control an integer that starts at zero and always remains between 0 and 6. It represents the index of the `letterlist` that the letter selector is selecting. To move the selector right, we add 1 to the index with the `A Button`, and to move left we subtract 1 from the index with the `X Button`, and then we update the currently selected letter to the current index. When the `B Button` is pressed, it adds the currently selected letter to a guess string, and when the `Y Button` is pressed, it submits the guess string to the `Bee` with `Bee.guess(guess_string)`. If the guess returns a 'found' guess-code then the loop ends, otherwise it clears the guess string and loops again.
 
@@ -720,11 +720,11 @@ class Controller(bee):
 
 The goal of this iteration was simply to be able to successfully move the selector and select letters and submit words, the main interactive functions of the game; the rest of the device facilitates those action. A more sophisticated iteration of the device allowed for an almost full game to be played as it is on the finished BumbleBee, but printed to the REPL instead of the device's display.
 
-<p align="center">
-  <img src="docs/img/demo/deviceDemo2.gif" alt="A demo of the device printing selected letters to the REPL from a Bee built from the word 'accordion'. The player moves the selector horizontally from letter to letter using the buttons and successfully selects and submits the letters for 'accord', then scrolls through submitted guesses which are also printed to the REPL" width="80%" height="auto">
-  <br>
-  <i>The second iteration, showing a playable game – it's a little easier to see where the letter selector is in the <code>letterlist</code>, because the game prepends spaces to the letter according to the letter's index in the <code>letterlist</code></i>
-</p>
+> <p align="center">
+>   <img src="docs/img/demo/deviceDemo2.gif" alt="A demo of the device printing selected letters to the REPL from a Bee built from the word 'accordion'. The player moves the selector horizontally from letter to letter using the buttons and successfully selects and submits the letters for 'accord', then scrolls through submitted guesses which are also printed to the REPL" width="80%" height="auto">
+>   <br>
+>   <i>The second iteration, showing a playable game – it's a little easier to see where the letter selector is in the <code>letterlist</code>, because the game prepends spaces to the letter according to the letter's index in the <code>letterlist</code></i>
+> </p>
 
 The second iteration had a few extra things but was built on the same foundation. This was almost the full game, playing like the final version but over the REPL. For the most part, all it was waiting for was to be attached to the display. 
 
@@ -869,11 +869,11 @@ The Pico Display Pack's provided libraries were all built in [MicroPython](https
 
 In CircuitPython, displays can use [`displayio`](https://docs.circuitpython.org/en/latest/shared-bindings/displayio/) to draw things like text, shapes and images to the display (with a number of other [helper libraries](https://learn.adafruit.com/circuitpython-display-support-using-displayio/helper-libraries)). The first thing I wanted to do with the display was make sure that I could get all that to work together – that all the libraries would work, that the hardware would work, and that I could get it connected to the `Bee`.
 
-<p align="center">
-  <img src="docs/img/demo/deviceDemo3.gif" alt="A demo of the device display with a Bee built from the word 'accordion'. The guess input field and selected letter are displayed very small in the middle of the screen. The guess input field is above the selected letters, which appear and disappear as they are selected. The player moves the selector horizontally from letter to letter, also deleting an extra 'o', using the buttons and successfully selects and submits the letters for 'accord', which disappears" width="80%" height="auto">
-  <br>
-  <i>The first display output of the project – blurry and small, but shows the guess input string on top and the letter selector's location on the bottom</i>
-</p>
+> <p align="center">
+>   <img src="docs/img/demo/deviceDemo3.gif" alt="A demo of the device display with a Bee built from the word 'accordion'. The guess input field and selected letter are displayed very small in the middle of the screen. The guess input field is above the selected letters, which appear and disappear as they are selected. The player moves the selector horizontally from letter to letter, also deleting an extra 'o', using the buttons and successfully selects and submits the letters for 'accord', which disappears" width="80%" height="auto">
+>   <br>
+>   <i>The first display output of the project – blurry and small, but shows the guess input string on top and the letter selector's location on the bottom</i>
+> </p>
 
 The first iteration with the display attached was very simple. It works exactly the same as the last iteration over the REPL, still printing everything there, but in addition, two strings are displayed to the screen:
 
@@ -907,11 +907,11 @@ One of the few exceptions was the way that the player received guess codes from 
 > - the ability to shuffle the order of the `letterlist` using the device. When the player holds down the `A Button`, the letter list will shuffle around, but keeping the `keyletter` in the center
 > - the Pico Display Pack's RGB LED is set up with the `RGB` class to replace the Pico LiPo's user LED. This provides a clearer indication that the game is working and can be seen from the front
 
-<p align="center">
-  <img src="docs/img/demo/deviceDemo4.gif" alt="A demo of the nearly-final BumbleBee. The player uses the buttons the select and submit the letters for 'accord', which is accepted with a printed alert at the top of the screen reading 'found' that disappears after five seconds. Next, the player opens the Info Screen and scrolls through submitted answers, showing 'accord' was added. The player navigates back to the Game Screen and selects and submits the letters for 'dan', which is rejected with another alert labeled 'too short'. Next, the player selects the letter 'c', shuffles the letters in the letterlist, and selects and submits the rest of the letters for 'card', which is accepted with another alert labeled 'found'. The player swaps to the Info Screen, and scrolls though the found words, showing 'card' was added" width="80%" height="auto">
-  <br>
-  <i>A nearly final BumbleBee demoing its functionality – letters are selected and deleted, words are submitted, letters are shuffled, alerts are displayed and UIs are switched</i>
-</p>
+> <p align="center">
+>   <img src="docs/img/demo/deviceDemo4.gif" alt="A demo of the nearly-final BumbleBee. The player uses the buttons the select and submit the letters for 'accord', which is accepted with a printed alert at the top of the screen reading 'found' that disappears after five seconds. Next, the player opens the Info Screen and scrolls through submitted answers, showing 'accord' was added. The player navigates back to the Game Screen and selects and submits the letters for 'dan', which is rejected with another alert labeled 'too short'. Next, the player selects the letter 'c', shuffles the letters in the letterlist, and selects and submits the rest of the letters for 'card', which is accepted with another alert labeled 'found'. The player swaps to the Info Screen, and scrolls though the found words, showing 'card' was added" width="80%" height="auto">
+>   <br>
+>   <i>A nearly final BumbleBee demoing its functionality – letters are selected and deleted, words are submitted, letters are shuffled, alerts are displayed and UIs are switched</i>
+> </p>
 
 From this point, the main things that needed to be done were polishing and finishing, like:
 
