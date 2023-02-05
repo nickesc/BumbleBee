@@ -928,7 +928,7 @@ From this point, the main things that needed to be done were polishing and finis
 > <p align="center">
 >   <img src="docs/img/photos/gridDevice.png" alt="A photo of the BumbleBee's Grid Screen. The grid is built from the letters ['e','g','n','i','a','c','s'], with keyletter 'i'. It features 87 total words, 12 that have four letters, 15 with five, 20 with six, 25 with seven, 10 with eight, and 5 with nine; or 8 starting with 'e', 15 starting with 'g', 7 starting with 'n', 12 starting with 'i', 12 starting with 'a', 8 starting with 'c', 25 starting with 's'" width="60%" height="auto">
 >   <br>
->   <i>The BumbleBee's Grid Screen – this grid is built from the <code>letterlist</code> E, G, N, I, A, C, and S, with <code>keyletter</code> I</i>
+>   <i>The BumbleBee's Grid Screen – this grid is built from <code>letterlist</code> E, G, N, I, A, C, and S, with <code>keyletter</code> I</i>
 > </p>
 >
 > The grid is built similarly to the CLI's, but instead of being one long string, the game splits up each value into a different cell and UI object. The grid is generated dynamically based on the words present in the `wordlist`, and shows all the same information, but in a smaller, harder to read format. To go back to the Info Screen, any of the four face buttons can be pressed. The grid is built whet he device starts up and when a new `Bee` is generated. Unfortunately, because it uses so many individual objects, it does hog a lot of memory and slow down the device. For mor information on reading the hint grid, see [Grid Screen](#grid-screen)
