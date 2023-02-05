@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 658.9">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 34.69px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .cls-1, .cls-3 {
+        font-family: IBMPlexMono-LightItalic, 'IBM Plex Mono';
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-2 {
+        font-size: 309.37px;
+      }
+
+      .cls-2, .cls-4 {
+        font-family: IBMPlexSans-LightItalic, 'IBM Plex Sans';
+      }
+
+      .cls-3 {
+        font-size: 52.03px;
+      }
+
+      .cls-4 {
+        font-size: 172.05px;
+      }
+    </style>
+  </defs>
+  <g>
+    <text class="cls-2" transform="translate(0 366.09)"><tspan class="cls-5" x="0" y="0">B</tspan><tspan x="189.33" y="0">umble</tspan><tspan class="cls-6" x="1033.59" y="0">B</tspan><tspan x="1221.68" y="0">ee</tspan></text>
+    <text class="cls-4" transform="translate(203.14 157.7)"><tspan x="0" y="0">the</tspan></text>
+  </g>
+  <g>
+    <text class="cls-3" transform="translate(471.41 508.17)"><tspan x="0" y="0">built by N. Escobar</tspan></text>
+    <text class="cls-1" transform="translate(476.62 578.69)"><tspan x="0" y="0">github.com/nickesc/BumbleBee</tspan></text>
+  </g>
+</svg>
