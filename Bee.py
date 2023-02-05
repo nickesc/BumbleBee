@@ -4,14 +4,15 @@ program='python3 Bee.py'
 
 epilogue='''
 CLI commands:
-  -new    generate a new Bee
-  -grid   toggle the hint grid
-  -cheat  toggle the wordlist
+  -new      generate a new Bee
+  -grid     toggle the hint grid
+  -cheat    toggle the wordlist
+  -shuffle  shuffle the order of the letterlist
 
 Running the CLI will start a Bee. By default, the game will use the data from the last saved Bee state. Enter words into the input to submit them as guesses or enter commands to execute them.
 
 For more information visit:
-  https://github.com/nickesc/BumbleBee#cli
+  https://github.com/nickesc/BumbleBee#cli-gameplay
  '''
 
 argParser = ArgumentParser(

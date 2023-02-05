@@ -14,6 +14,7 @@ Documentation:
 - [`displayio`](https://docs.circuitpython.org/en/latest/shared-bindings/displayio/)
 - [`adafruit_display_shapes`](https://docs.circuitpython.org/projects/display-shapes/en/latest/index.html)
 - [`adafruit_display_text.label.Label`](https://docs.circuitpython.org/projects/display_text/en/latest/api.html#adafruit_display_text.label.Label)
+- [`argparse`](https://docs.python.org/3/library/argparse.html)
   
 References:
 - [NYT Spelling Bee](https://www.nytimes.com/puzzles/spelling-bee)
@@ -39,8 +40,19 @@ Fonts:
 - [Fork Awesome Bitmap Icon Font](https://emergent.unpythonic.net/01606790241) ([icons](https://forkaweso.me/Fork-Awesome/icons/))
 - [Adafruit bdftopcf](https://adafruit.github.io/web-bdftopcf/)
 
-Things to know about the device:
-- The device BumbleBee takes a long time to make a new game. be patient with it, put it down for 2-10 minutes then come back to it. the game resets infrequently enough that it shouldn't be a problem
-- try not ot leave it on -- the battery does better if it is off than if is allowed to deplete
-- on that note, the screen-on time for the battery in the device is around 45 minutes-1 hour
-- also, the graph is difficult to read -- though the word length labels are missing, the columns always start from 4 -- the grid is the same otherwise, just missing labels
+UML:
+- [IBM UML Models and Diagrams](https://www.ibm.com/docs/en/rational-soft-arch/9.7.0?topic=diagrams-uml-models)
+- [Relationships in Class Diagrams](https://www.ibm.com/docs/en/rational-soft-arch/9.7.0?topic=diagrams-relationships-in-class)
+- [Object Diagrams](https://www.ibm.com/docs/en/rational-soft-arch/9.7.0?topic=diagrams-object)
+- [UML Diagrams](https://www.uml-diagrams.org/)
+- displayOff
+- [UML Deployment Diagrams](https://www.uml-diagrams.org/deployment-diagrams.html)
+- [UML Relationships](https://www.guru99.com/uml-relationships-with-example.html)
+- [UML Dependency](https://www.uml-diagrams.org/dependency.html)
+- [What is UML?](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/)
+- [Object Diagrams](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-object-diagram/)
+- [Association vs Aggregation vs Composition](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregation-vs-composition/)
+- [What is a deployment diagram?](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-deployment-diagram/)
+- [UML Relationships](https://www.gleek.io/blog/uml-relationships)
+- [UML Class Diagram Relationship Arrows](https://www.gleek.io/blog/class-diagram-arrows)
+- [Deployment diagram explained in detail](https://www.plutora.com/blog/deployment-diagrams-explained-in-detail-with-examples)
